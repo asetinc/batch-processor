@@ -12,7 +12,7 @@ public class PersonItemProcessor implements ItemProcessor<PersonEntity, PersonEn
         final String firstName = person.getFirstName().toUpperCase();
         final String lastName = person.getLastName().toUpperCase();
 
-        final PersonEntity transformedPerson = new PersonEntity(firstName, lastName);
+        final PersonEntity transformedPerson = new PersonEntity(person.getId(), firstName, lastName, person.getAge());
         log.info("Processing complete. person={} converted to newPerson={}", person, transformedPerson);
 
         return transformedPerson;

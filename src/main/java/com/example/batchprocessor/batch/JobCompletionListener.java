@@ -27,7 +27,9 @@ public class JobCompletionListener extends JobExecutionListenerSupport {
             jdbcTemplate.query("SELECT first_name, last_name FROM people",
                     (rs, row) -> new PersonEntity(
                             rs.getString(1),
-                            rs.getString(2))
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4))
             ).forEach(person -> log.info("Found <" + person + "> in the database."));
         } else {
             log.info("Job still not finished.");
